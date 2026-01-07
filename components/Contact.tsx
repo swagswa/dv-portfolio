@@ -22,11 +22,11 @@ const Contact: React.FC = () => {
           
           <ScrollReveal delay={400}>
             <div className="flex flex-col sm:flex-row gap-4">
-              <a href="#" className="inline-flex items-center justify-center gap-2 bg-black text-white px-8 py-4 text-sm uppercase tracking-widest font-bold hover:bg-white hover:text-black transition-colors duration-300">
+              <a href="https://t.me/zmb4rver" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 bg-black text-white px-8 py-4 text-sm uppercase tracking-widest font-bold hover:bg-white hover:text-black transition-colors duration-300">
                   Telegram
                   <ArrowUpRight className="w-4 h-4" />
               </a>
-              <a href="#" className="inline-flex items-center justify-center gap-2 border border-black/20 bg-transparent text-white px-8 py-4 text-sm uppercase tracking-widest font-bold hover:bg-black/10 transition-colors duration-300">
+              <a href="mailto:tufgvlo@gmail.com" className="inline-flex items-center justify-center gap-2 border border-black/20 bg-transparent text-white px-8 py-4 text-sm uppercase tracking-widest font-bold hover:bg-black/10 transition-colors duration-300">
                   Email Me
               </a>
             </div>
