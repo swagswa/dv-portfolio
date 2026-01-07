@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 const Hero: React.FC = () => {
   const [time, setTime] = useState<string>('');
   const [loaded, setLoaded] = useState(false);
+  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
 
   useEffect(() => {
     // Trigger entry animation
@@ -14,7 +15,31 @@ const Hero: React.FC = () => {
     };
     updateTime();
     const interval = setInterval(updateTime, 1000);
-    return () => clearInterval(interval);
+
+    const handleMouseMove = (e: MouseEvent) => {
+      setMousePos({
+        x: (e.clientX / window.innerWidth - 0.5) * 20,
+        y: (e.clientY / window.innerHeight - 0.5) * 20
+      });
+    };
+
+    const handleTouchMove = (e: TouchEvent) => {
+      if (e.touches[0]) {
+        setMousePos({
+          x: (e.touches[0].clientX / window.innerWidth - 0.5) * 15,
+          y: (e.touches[0].clientY / window.innerHeight - 0.5) * 15
+        });
+      }
+    };
+
+    window.addEventListener('mousemove', handleMouseMove);
+    window.addEventListener('touchmove', handleTouchMove);
+
+    return () => {
+      clearInterval(interval);
+      window.removeEventListener('mousemove', handleMouseMove);
+      window.removeEventListener('touchmove', handleTouchMove);
+    };
   }, []);
 
   return (
@@ -31,19 +56,25 @@ const Hero: React.FC = () => {
       </div>
 
       {/* Center Visual - Abstract 3D Red Element */}
-      <div className={`relative z-10 w-full max-w-[95vw] md:max-w-[90vw] flex justify-center items-center h-[60vh] md:h-[75vh] transition-all duration-1000 delay-300 ease-out-expo ${loaded ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`}>
+      <div 
+        className={`relative z-10 w-full max-w-[95vw] md:max-w-[90vw] flex justify-center items-center h-[65vh] md:h-[75vh] transition-all duration-1000 delay-300 ease-out-expo ${loaded ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`}
+        style={{
+          transform: `translate3d(${mousePos.x}px, ${mousePos.y}px, 0) scale(${loaded ? 1 : 0.95})`,
+          transition: loaded ? 'transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), opacity 1s, scale 1s' : ''
+        }}
+      >
          <img 
             src="/swag.png" 
             alt="Swag" 
-            className="w-full h-full object-contain mix-blend-screen scale-110 md:scale-100"
+            className="w-full h-full object-contain mix-blend-screen scale-125 md:scale-100"
             style={{ filter: 'contrast(1.1) saturate(1.1)' }}
          />
       </div>
 
       {/* Name - Huge Typography at Bottom */}
-      <div className="absolute bottom-20 md:bottom-10 w-full text-center z-10 pointer-events-none select-none overflow-hidden px-4 mix-blend-difference">
+      <div className="absolute bottom-16 md:bottom-10 w-full text-center z-20 pointer-events-none select-none overflow-hidden px-4 mix-blend-difference">
         <h1 
-          className={`font-serif text-[18vw] md:text-[16vw] leading-none text-white tracking-tighter transition-all duration-1000 ease-out-expo transform ${loaded ? 'translate-y-0 opacity-100' : 'translate-y-[100%] opacity-0'}`}
+          className={`font-serif text-[22vw] md:text-[16vw] leading-none text-white tracking-tighter transition-all duration-1000 ease-out-expo transform ${loaded ? 'translate-y-0 opacity-100' : 'translate-y-[100%] opacity-0'}`}
         >
           VOLKOV
         </h1>
