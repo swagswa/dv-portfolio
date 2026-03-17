@@ -63,12 +63,16 @@ const Hero: React.FC = () => {
           transition: loaded ? 'transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), opacity 1s, scale 1s' : ''
         }}
       >
-         <img 
-            src="/swag.png" 
-            alt="Swag" 
-            className="w-full h-full object-contain mix-blend-screen scale-125 md:scale-100"
-            style={{ filter: 'contrast(1.1) saturate(1.1)' }}
-         />
+         <picture>
+            <source srcSet="/swag.webp" type="image/webp" />
+            <img
+              src="/swag-optimized.png"
+              alt="Daniil Volkov — Creative Tech"
+              className="w-full h-full object-contain mix-blend-screen scale-125 md:scale-100"
+              style={{ filter: 'contrast(1.1) saturate(1.1)' }}
+              loading="eager"
+            />
+         </picture>
       </div>
 
       {/* Name - Huge Typography at Bottom */}

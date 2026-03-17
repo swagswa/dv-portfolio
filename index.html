@@ -3,78 +3,21 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Daniil | Creative Tech</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            fontFamily: {
-              sans: ['Inter', 'sans-serif'],
-              serif: ['Playfair Display', 'serif'],
-            },
-            colors: {
-              'accent-red': '#D92828',
-            },
-            transitionTimingFunction: {
-              'out-expo': 'cubic-bezier(0.16, 1, 0.3, 1)',
-            }
-          }
-        }
-      }
-    </script>
-    <style>
-      body {
-        background-color: #050505;
-        color: #ffffff;
-        overflow-x: hidden;
-      }
-      /* Smooth scrolling */
-      html {
-        scroll-behavior: smooth;
-      }
-      /* Custom selection color */
-      ::selection {
-        background: #D92828;
-        color: white;
-      }
+    <title>Daniil Volkov — Creative Tech Portfolio</title>
+    <meta name="description" content="Креативный партнёр для компаний и брендов. AI автоматизация, визуальный контент, веб-разработка." />
+    <meta name="theme-color" content="#050505" />
 
-      /* Modal Animations */
-      @keyframes modal-enter {
-        from {
-          opacity: 0;
-          transform: scale(0.9) translateY(30px);
-          filter: blur(10px);
-        }
-        to {
-          opacity: 1;
-          transform: scale(1) translateY(0);
-          filter: blur(0);
-        }
-      }
+    <!-- Open Graph -->
+    <meta property="og:title" content="Daniil Volkov — Creative Tech Portfolio" />
+    <meta property="og:description" content="AI автоматизация, визуальный контент, веб-разработка. Ереван." />
+    <meta property="og:image" content="/swag.webp" />
+    <meta property="og:type" content="website" />
 
-      .animate-modal-enter {
-        animation: modal-enter 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-      }
-
-      .ease-out-expo {
-        transition-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
-      }
-    </style>
-  <script type="importmap">
-{
-  "imports": {
-    "lucide-react": "https://esm.sh/lucide-react@^0.562.0",
-    "react/": "https://esm.sh/react@^19.2.3/",
-    "react": "https://esm.sh/react@^19.2.3",
-    "react-dom/": "https://esm.sh/react-dom@^19.2.3/"
-  }
-}
-</script>
-</head>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
+  </head>
   <body>
     <div id="root"></div>
     <script type="module" src="/index.tsx"></script>
