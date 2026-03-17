@@ -68,7 +68,7 @@ const Hero: React.FC = () => {
             <img
               src="/swag-optimized.png"
               alt="Daniil Volkov — Creative Tech"
-              className="w-full h-full object-contain mix-blend-screen scale-125 md:scale-100"
+              className="w-full h-full object-cover md:object-contain mix-blend-screen scale-[2.4] translate-x-[60%] md:scale-100 md:translate-x-0"
               style={{ filter: 'contrast(1.1) saturate(1.1)' }}
               loading="eager"
             />
